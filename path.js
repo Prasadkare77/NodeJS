@@ -20,3 +20,5 @@ const filePath = `D:\Program Files\ReactJS\Revision.txt`
 const basename = path.basename(filePath)
 console.log(`Basename: ${basename}`);
 
+const dirname = path.dirname(filePath)
+console.log(`Directory name: ${dirname}`);
