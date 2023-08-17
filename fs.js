@@ -1,15 +1,15 @@
+
 const { log, error } = require('console');
 const fs = require('fs');
 
 // Writing yo file
-
 const contendToWrite = 'Hello, Node.Js !!!'
 
 fs.writeFile('example.txt', contendToWrite,(err)=>{
     if(err){
         console.log('Error Wrint To File' + err);
     } else{
-        console.log("FIle Written Successfully");
+        console.log("File Written Successfully");
     }
 })
 
@@ -18,7 +18,7 @@ fs.readFile('module.txt','utf8',(err,data)=>{
     if(err){
         console.log("Error reading File", err);
     }else{
-        console.log("File Content",data);
+        console.log("File Content:",data);
     }
 })
 
@@ -27,9 +27,9 @@ fs.stat("module.txs",(err,stat)=>{
     if(err){
         console.log("Error in stat", err)
     }else{
-        console.log("File Size",stat.size)
-        console.log("Is the file?",stat.isFile())
-        console.log("Is the Directory",stat.isDirectory())
+        console.log("File Size: ",stat.size)
+        console.log("Is the file?: ",stat.isFile())
+        console.log("Is the Directory: ",stat.isDirectory())
     }
 })
 
@@ -44,7 +44,7 @@ fs.appendFile("module.txt",contendToAppend,(err)=>{
 })
 
 // Delete a File
-fs.unlink("example.ts",(err)=>{
+fs.unlink("example.txt",(err)=>{
     if(err){
         console.error("Error in deleting file", err);
     }else{
@@ -53,10 +53,28 @@ fs.unlink("example.ts",(err)=>{
 })
 
 // Create Directory
-fs.mkdir("New Directort",(err)=>{
+fs.mkdir("New-Directory",(err)=>{
     if (err) {
         console.error("Error in creating Directory",err)
     }else{
         console.log("Directory created successfully");
+    }
+})
+
+// Reading Directory
+fs.readdir("New-Directories",(err,files)=>{
+    if (err) {
+        console.error("Error in creating Directory",err)
+    }else{
+        console.log("Files in directoey:",files);
+    }
+})
+
+// Removing Directory
+fs.rmdir("New-Directory",(err)=>{
+    if (err) {
+        console.error("Error in removing Directory",err);
+    } else {
+        console.log("Directory removed successfully");
     }
 })
